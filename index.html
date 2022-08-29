@@ -11,8 +11,33 @@
 
     </div>
     <script>
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+
+
+        'use strict';
+        const e = react.createElement;
+
+        class LikeButton extrends react.Component {
+            constructor(props){
+                super(props);
+                this.state = { liked: false};
+            }
+            render(){
+                if (this.state.liked) {
+                    return 'You liked this.';
+                }
+
+                return e(
+                    'button',
+                    {onClick: () => this.setState({ liked: true})},
+                    'Liked'
+                );
+            }
+        }
         const root = document.getElementById('root');
-        root.innerHTML = "Hi React!"
+        reactDOM.render(e(LikeButton), domContainer);
     </script>
 </body>
 </html>
