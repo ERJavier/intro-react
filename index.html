@@ -7,37 +7,44 @@
     <title>vanilla</title>
 </head>
 <body>
-    <div id="root">
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 
-    </div>
+
     <script>
-        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-
-
-
         'use strict';
-        const e = react.createElement;
 
-        class LikeButton extrends react.Component {
-            constructor(props){
+        const e = React.createElement;
+
+        class LikeButton extends React.Component {
+            constructor(props) {
                 super(props);
-                this.state = { liked: false};
+                this.state = {
+                    liked: false
+                };
             }
-            render(){
+
+            render() {
                 if (this.state.liked) {
                     return 'You liked this.';
                 }
 
                 return e(
-                    'button',
-                    {onClick: () => this.setState({ liked: true})},
-                    'Liked'
+                    'button', {
+                    onClick: () => this.setState({
+                        liked: true
+                    })
+                },
+                    'Like'
                 );
             }
         }
-        const root = document.getElementById('root');
-        reactDOM.render(e(LikeButton), domContainer);
+
+        const domContainer = document.getElementById('root');
+        const root = ReactDOM.createRoot(domContainer);
+        root.render(e(LikeButton));
     </script>
+
 </body>
 </html>
