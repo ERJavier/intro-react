@@ -7,7 +7,7 @@ import {CreateTodoButtom} from "./CreateTodoButton";
 // import './App.css';
 
 const todos = [
-  { text: 'Cut onion', completed: false},
+  { text: 'Cut onion', completed: true},
   { text: 'take classes', completed: false },
   { text: 'buy milk', completed: false}
 ]
