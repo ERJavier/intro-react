@@ -1,5 +1,5 @@
 import React from "react";
-import TodoCounter from "../ToDoCounter";
+import {TodoCounter} from "./TodoCounter";
 // import './App.css';
 
 const todos = [
@@ -10,7 +10,7 @@ const todos = [
 function App() {
   return (
     <React.Fragment>
-     {/* { <todoCounter />} */}
+     <TodoCounter />
       {/* {<todoSearch />} */}
       <input type="text" placeholder="Onion"/>
       <button> + </button>
