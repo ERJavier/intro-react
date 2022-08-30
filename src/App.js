@@ -1,5 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+
+
+const e = React.createElement
+
+ReactDOM.render(e());
 
 function App() {
   return (
