@@ -9,7 +9,7 @@ import {CreateTodoButtom} from "./CreateTodoButton";
 const defaultTodos = [
   { text: 'Cut onion', completed: true},
   { text: 'take classes', completed: false },
-  { text: 'buy milk', completed: false}
+  { text: 'buy milk', completed: true}
 ]
 function App() {
   const [todos, setTodos] = React.useState(defaultTodos)
