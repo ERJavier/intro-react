@@ -6,12 +6,13 @@ import { TodoItem } from "./TodoItem"
 import {CreateTodoButtom} from "./CreateTodoButton";
 // import './App.css';
 
-const todos = [
+const defaultTodos = [
   { text: 'Cut onion', completed: true},
   { text: 'take classes', completed: false },
   { text: 'buy milk', completed: false}
 ]
 function App() {
+  const [todos, setTodos] = React.useState(defaultTodos)
   const [searchValue, setSearchValue ] = React.useState('');
   return (
     <React.Fragment>
