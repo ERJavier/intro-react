@@ -30,6 +30,14 @@ function App() {
     });
   }
 
+  const completeTodos = (text) => {
+    const todoIndex = todos.findIndex(todo => todo.text == text);
+
+    const newTodos = [... todos];
+    newTodos[todoIndex].completed = true;
+    setTodos(newTodos);
+  };
+
   return (
     <React.Fragment>
      <TodoCounter
@@ -42,7 +50,12 @@ function App() {
       />
       {<TodoList>
         {searchedTodos.map(todo => (
-          <TodoItem key={todo.text} text={todo.text} completed={todo.completed}/>
+          <TodoItem 
+            key={todo.text} 
+            text={todo.text} 
+            completed={todo.completed}
+            onComplete={() => completeTodos(todo.text)}
+          />
         ))}
       </TodoList>}
       {<CreateTodoButtom />}
