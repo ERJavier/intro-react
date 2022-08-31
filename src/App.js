@@ -14,9 +14,16 @@ const defaultTodos = [
 function App() {
   const [todos, setTodos] = React.useState(defaultTodos)
   const [searchValue, setSearchValue ] = React.useState('');
+
+  const completedTodos = todos.filter(todo => !!todo.completed).length;
+  const totalTodos = todos.length;
+
   return (
     <React.Fragment>
-     <TodoCounter />
+     <TodoCounter
+     total={totalTodos}
+     completed={completedTodos}
+     />
       <TodoSearch 
         searchValue={searchValue}
          setSearchValue={setSearchValue}
