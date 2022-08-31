@@ -12,10 +12,14 @@ const todos = [
   { text: 'buy milk', completed: false}
 ]
 function App() {
+  const [searchValue, setSearchValue ] = React.useState('');
   return (
     <React.Fragment>
      <TodoCounter />
-      {<TodoSearch />}
+      <TodoSearch 
+        searchValue={searchValue}
+         setSearchValue={setSearchValue}
+      />
       {<TodoList>
         {todos.map(todo => (
           <TodoItem key={todo.text} text={todo.text} completed={todo.completed}/>
