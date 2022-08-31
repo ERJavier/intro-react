@@ -20,7 +20,7 @@ function App() {
 
   let searchedTodos = [];
 
-  if (!searchedTodos.length >= 1){
+  if (!setSearchValue.length >= 1){
     searchedTodos = todos;
   } else {
     searchedTodos = todos.filter(todo => {
@@ -28,7 +28,6 @@ function App() {
       const searchText = searchValue.toLowerCase();
       return todoText.includes(searchText);
     });
-    
   }
 
   return (
