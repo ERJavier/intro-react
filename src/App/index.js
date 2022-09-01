@@ -1,13 +1,15 @@
 import React from 'react';
 import { AppUI } from './AppUI';
 
-const defaultTodos = [
-  { text: 'cut onion', completed: true },
-  { text: 'clean room', completed: false },
-  { text: 'buy milk', completed: true },
-];
+// const defaultTodos = [
+//   { text: 'cut onion', completed: true },
+//   { text: 'clean room', completed: false },
+//   { text: 'buy milk', completed: true },
+// ];
 
 function App() {
+  const localStorageTodos = localStorage.getItem('TODOS_V1');
+
   const [todos, setTodos] = React.useState(defaultTodos);
   const [searchValue, setSearchValue] = React.useState('');
 
