@@ -2,7 +2,7 @@ import react from "react";
 import './CreateTodoButton.css';
 
 
-const  CreateTodoButtom = (props) => {
+const  CreateTodoButton = (props) => {
     const onClickButton = (msg) => {
         alert(msg)
     }
@@ -16,4 +16,4 @@ const  CreateTodoButtom = (props) => {
     );
 }
 
-export { CreateTodoButtom};
+export { CreateTodoButton };
