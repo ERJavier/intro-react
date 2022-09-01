@@ -12,7 +12,7 @@ function App() {
   const localStorageTodos = localStorage.getItem('TODOS_V1');
   let parsedTodos;
 
-  if (!localStorageTodos) {
+  if (!!localStorageTodos) {
     localStorage.setItem('TODOS_V1', JSON.stringify([]));
     parsedTodos = [];
   } else {
