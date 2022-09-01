@@ -9,8 +9,17 @@ import { AppUI } from './AppUI';
 
 function App() {
   const localStorageTodos = localStorage.getItem('TODOS_V1');
+  let parsedTodos;
 
-  const [todos, setTodos] = React.useState(defaultTodos);
+  if (!localStorageTodos) {
+    localStorage.setItem('TODOS_V1', []);
+    parsedTodos = [];
+  }else {
+    parsedTodos = JSON.parse(localStorageTodos);
+  }
+  
+
+  const [todos, setTodos] = React.useState(parsedTodos);
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
