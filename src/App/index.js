@@ -13,10 +13,10 @@ function App() {
   let parsedTodos;
 
   if (!!localStorageTodos) {
+    parsedTodos = JSON.parse(localStorageTodos);
+  } else {
     localStorage.setItem('TODOS_V1', JSON.stringify([]));
     parsedTodos = [];
-  } else {
-    parsedTodos = JSON.parse(localStorageTodos);
   }
 
   
