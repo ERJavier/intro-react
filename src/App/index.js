@@ -8,17 +8,20 @@ import { AppUI } from './AppUI';
 // ];
 
 function App() {
+    // Traemos nuestros TODOs almacenados
   const localStorageTodos = localStorage.getItem('TODOS_V1');
   let parsedTodos;
 
   if (!localStorageTodos) {
-    localStorage.setItem('TODOS_V1', []);
+    // Si el usuario es nuevo no existe un item en localStorage, por lo tanto guardamos uno con un array vacío
+    localStorage.setItem('TODOS_V1', JSON.stringify([]));
     parsedTodos = [];
-  }else {
+  } else {
+    // Si existen TODOs en el localStorage los regresamos como nuestros todos
     parsedTodos = JSON.parse(localStorageTodos);
   }
-  
 
+  // Guardamos nuestros TODOs del localStorage en nuestro estado
   const [todos, setTodos] = React.useState(parsedTodos);
   const [searchValue, setSearchValue] = React.useState('');
 
