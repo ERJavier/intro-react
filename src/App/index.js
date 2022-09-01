@@ -40,18 +40,30 @@ function App() {
     });
   }
 
+    // Creamos la función en la que actualizaremos nuestro localStorage
+  const saveTodos = (newTodos) => {
+    // Convertimos a string nuestros TODOs
+    const stringifiedTodos = JSON.stringify(newTodos);
+    // Los guardamos en el localStorage
+    localStorage.setItem('TODOS_V1', stringifiedTodos);
+    // Actualizamos nuestro estado
+    setTodos(newTodos);
+  };
+
   const completeTodo = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];
     newTodos[todoIndex].completed = true;
-    setTodos(newTodos);
+    // Cada que el usuario interactúe con nuestra aplicación se guardarán los TODOs con nuestra nueva función
+    saveTodos(newTodos);
   };
 
   const deleteTodo = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
-    setTodos(newTodos);
+    // Cada que el usuario interactúe con nuestra aplicación se guardarán los TODOs con nuestra nueva función
+    saveTodos(newTodos);
   };
   
   return (
