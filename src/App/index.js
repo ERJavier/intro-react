@@ -66,6 +66,8 @@ function App() {
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
   };
+
+React.useEffect
   
   return [
     <p>{patito}</p>,
