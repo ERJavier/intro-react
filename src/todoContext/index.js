@@ -1,12 +1,17 @@
-import React from "react";
-import {useLocalStorage} from './useLocalStorage'
+import React from 'react';
+import { useLocalStorage } from './useLocalStorage';
 
-const TodoContext = React.createContext()
-
+// Al crear el contexto también podemos pasarle un valor inicial entre los paréntesis
+const TodoContext = React.createContext();
 
 function TodoProvider(props) {
-  const [patito, savePatito] = useLocalStorage('PATITO_V1', 'FERNANDO');
-  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
+  // Nos traemos todo el estado y las funciones de nuestra aplicación que queremos globales
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error,
+  } = useLocalStorage('TODOS_V1', []);
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
@@ -37,20 +42,21 @@ function TodoProvider(props) {
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
   };
-
-    return (
-        <TodoContext.Provider value={{
-            totalTodos,
-            completedTodos,
-            searchValue,
-            setSearchValue,
-            searchedTodos,
-            completeTodo,
-            deleteTodo
-        }}>
-            {props.children}
-        </TodoContext.Provider>
-    )
+  
+  // Retornamos nuestro proveedor con nuestro contexto en la etiqueta value, que recibirá a toda nuestra aplicación, por eso necesitamos la prop children
+  return (
+    <TodoContext.Provider value={{
+      loading,
+      error,
+      totalTodos,
+      completedTodos,
+      searchValue,
+      setSearchValue,
+      searchedTodos,
+      completeTodo,
+      deleteTodo,
+    }}>
+      {props.children}
+    </TodoContext.Provider>
+  );
 }
-
-<TodoContext.Provider></TodoContext.Provider>
