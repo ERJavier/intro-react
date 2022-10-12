@@ -10,7 +10,7 @@ function TodoSearch({ searchValue, setSearchValue }) {
   return (
     <input
       className="TodoSearch"
-      placeholder="cut onion"
+      placeholder="Cebolla"
       value={searchValue}
       onChange={onSearchValueChange}
     />

@@ -60,3 +60,5 @@ function TodoProvider(props) {
     </TodoContext.Provider>
   );
 }
+
+export { TodoContext, TodoProvider };
